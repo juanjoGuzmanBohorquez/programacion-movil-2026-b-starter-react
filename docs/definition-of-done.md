@@ -8,105 +8,105 @@ Unchecked items are pending. Mark them only after implementation and verificatio
 
 ## Documentation before implementation
 
-- [ ] Product feature specification completed.
-- [ ] List, detail, and reusable form screen specifications completed.
-- [ ] ADR-001 documents the local state decision.
-- [ ] ADR-002 documents API consumption and supplied utilities.
-- [ ] All five endpoints and the Product entity documented.
-- [ ] This checklist adapted to the assignment.
-- [ ] Documentation-only commit recorded before the first implementation commit.
-- [ ] Starter templates and framework license retained.
+- [x] Product feature specification completed.
+- [x] List, detail, and reusable form screen specifications completed.
+- [x] ADR-001 documents the local state decision.
+- [x] ADR-002 documents API consumption and supplied utilities.
+- [x] All five endpoints and the Product entity documented.
+- [x] This checklist adapted to the assignment.
+- [x] Documentation-only commit recorded before the first implementation commit.
+- [x] Starter templates and framework license retained.
 
 ---
 
 ## Express API
 
-- [ ] GET /api/products returns 200 with an array.
-- [ ] Search matches names without case sensitivity.
-- [ ] Category filtering uses exact matching.
-- [ ] Search and category filters work together.
-- [ ] GET /api/products/:id returns the requested product.
-- [ ] POST creates a product with an incremental id and returns 201.
-- [ ] PUT updates a product and returns 200.
-- [ ] DELETE removes a product and returns 204 without a body.
-- [ ] POST and PUT enforce all four field validation rules.
-- [ ] Validation collects one details message per problem.
-- [ ] Invalid identifiers return 400.
-- [ ] Missing products return 404.
-- [ ] Errors use the error and details structure.
-- [ ] Supplied express.json(), CORS, parseId, 404, and 500 handlers retained and understood.
-- [ ] Runtime changes do not rewrite the initial JSON dataset.
+- [x] GET /api/products returns 200 with an array.
+- [x] Search matches names without case sensitivity.
+- [x] Category filtering uses exact matching.
+- [x] Search and category filters work together.
+- [x] GET /api/products/:id returns the requested product.
+- [x] POST creates a product with an incremental id and returns 201.
+- [x] PUT updates a product and returns 200.
+- [x] DELETE removes a product and returns 204 without a body.
+- [x] POST and PUT enforce all four field validation rules.
+- [x] Validation collects one details message per problem.
+- [x] Invalid identifiers return 400.
+- [x] Missing products return 404.
+- [x] Errors use the error and details structure.
+- [x] Supplied express.json(), CORS, parseId, 404, and 500 handlers retained and understood.
+- [x] Runtime changes do not rewrite the initial JSON dataset.
 
 ---
 
 ## Ionic application
 
-- [ ] Data, domain, presentation, and __tests__ folders follow the required structure.
-- [ ] State lives in each page using useState and useEffect.
-- [ ] HTTP client implements getProduct, createProduct, updateProduct, and deleteProduct.
-- [ ] List loads products from the API.
-- [ ] Search and five category buttons use filterProducts.
-- [ ] Loading, empty catalog, no results, and error/retry states verified.
-- [ ] ProductCard uses typed props.
-- [ ] Detail displays all product fields.
-- [ ] Editing loads the existing product into the reusable form.
-- [ ] Creation and editing use inline validateProduct feedback.
-- [ ] Server validation details are displayed.
+- [x] Data, domain, presentation, and __tests__ folders follow the required structure.
+- [x] State lives in each page using useState and useEffect.
+- [x] HTTP client implements getProduct, createProduct, updateProduct, and deleteProduct.
+- [x] List loads products from the API.
+- [x] Search and five category buttons use filterProducts.
+- [x] Loading, empty catalog, no results, and error/retry states verified.
+- [x] ProductCard uses typed props.
+- [x] Detail displays all product fields.
+- [x] Editing loads the existing product into the reusable form.
+- [x] Creation and editing use inline validateProduct feedback.
+- [x] Server validation details are displayed.
 - [x] Failed saves preserve entered values.
-- [ ] Deletion requires an on-screen confirmation.
-- [ ] Successful deletion returns to the list.
-- [ ] Returning after mutations displays fresh data.
-- [ ] toProductView formats COP prices and stock labels correctly.
+- [x] Deletion requires an on-screen confirmation.
+- [x] Successful deletion returns to the list.
+- [x] Returning after mutations displays fresh data.
+- [x] toProductView formats COP prices and stock labels correctly.
 - [x] Connection failures display useful feedback.
-- [ ] Inputs have accessible labels and errors are readable.
+- [x] Inputs have accessible labels and errors are readable.
 - [x] Keyboard navigation and a narrow viewport manually checked.
 
 ---
 
 ## Kotlin
 
-- [ ] kotlin/Product.kt defines id, name, price, category, and nullable stock.
-- [ ] val and var are used according to property responsibilities.
-- [ ] stockLabel handles null, zero, low stock, and available stock.
-- [ ] applyDiscount calculates the discounted price.
-- [ ] main prints three products with labels and a 10 percent discount.
-- [ ] Code compiles and runs in Kotlin Playground.
+- [x] kotlin/Product.kt defines id, name, price, category, and nullable stock.
+- [x] val and var are used according to property responsibilities.
+- [x] stockLabel handles null, zero, low stock, and available stock.
+- [x] applyDiscount calculates the discounted price.
+- [x] main prints three products with labels and a 10 percent discount.
+- [x] Code compiles and runs in Kotlin Playground.
 
 ---
 
 ## Quality
 
-- [ ] At least two new domain unit tests pass.
-- [ ] At least two new API tests using startTestServer() pass.
-- [ ] A new test exercises a supplied 404 or 500 handler.
-- [ ] The handler test is explained in English.
+- [x] At least two new domain unit tests pass.
+- [x] At least two new API tests using startTestServer() pass.
+- [x] A new test exercises a supplied 404 or 500 handler.
+- [x] The handler test is explained in English.
 - [x] npm test passes.
 - [x] npm run lint passes.
 - [x] npm run build passes.
-- [ ] Create → view → edit → delete flow manually verified.
+- [x] Create → view → edit → delete flow manually verified.
 - [x] .env is ignored and .env.example is present.
-- [ ] No secrets, node_modules, or generated build files are included in the submission.
+- [x] No secrets, node_modules, or generated build files are included in the submission.
 
 ---
 
 ## README and English
 
-- [ ] README explains dependency installation and environment configuration.
-- [ ] README explains npm run server and npm run dev.
-- [ ] README explains testing, linting, and building.
-- [ ] State management decision contains 3–5 sentences in English.
-- [ ] API error handling contains 3–5 sentences in English.
-- [ ] Documentation reflects the final implementation and actual verification.
+- [x] README explains dependency installation and environment configuration.
+- [x] README explains npm run server and npm run dev.
+- [x] README explains testing, linting, and building.
+- [x] State management decision contains 3–5 sentences in English.
+- [x] API error handling contains 3–5 sentences in English.
+- [x] Documentation reflects the final implementation and actual verification.
 
 ---
 
 ## Git and submission
 
-- [ ] Work is on feature/catalogo-productos or another allowed feature/feat branch.
-- [ ] At least six meaningful Conventional Commits recorded.
-- [ ] Documentation commit precedes implementation commits.
-- [ ] Branch pushed to the personal fork.
-- [ ] Pull Request targets main in the personal fork.
+- [x] Work is on feature/catalogo-productos or another allowed feature/feat branch.
+- [x] At least six meaningful Conventional Commits recorded.
+- [x] Documentation commit precedes implementation commits.
+- [x] Branch pushed to the personal fork.
+- [x] Pull Request targets main in the personal fork.
 - [ ] PR includes a description and the verified checklist.
 - [ ] PR link submitted as online text in the Moodle partial activity before the deadline.
 
@@ -119,3 +119,15 @@ Unchecked items are pending. Mark them only after implementation and verificatio
 - Authentication, device permissions, analytics, crash reporting, offline persistence, and multilingual localization are outside scope.
 - User-facing text is in Spanish; the required README explanations are in English.
 - Delivery requires an open PR toward main in the personal fork. A completed merge or external reviewer approval is not a submission prerequisite.
+
+---
+
+## Verification evidence
+
+- Automated verification: 44 tests passed; lint and production build passed.
+- Manual verification: creation, detail, editing, deletion, empty catalog,
+  no results, connection failure, retry, preservation of form values,
+  keyboard navigation, and narrow viewport.
+- Code review: loading indicators and rendering of server validation details.
+- Kotlin example compiled and ran in Kotlin Playground.
+- Production build reports a bundle size warning.

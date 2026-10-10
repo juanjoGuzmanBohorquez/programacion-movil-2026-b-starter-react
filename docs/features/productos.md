@@ -82,7 +82,7 @@ Screen specifications: `../screens/lista.md`, `../screens/detalle.md`, and `../s
 Implemented behavior. Checked items have been verified; unchecked items still require manual verification.
 
 - [ ] Loading: show a loading indicator while requests are pending.
-- [ ] Empty: show an empty catalog message and a create action.
+- [x] Empty: show an empty catalog message and a create action.
 - [x] No results: show a distinct message when filters match no products.
 - [x] Error / retry: show the request error and allow another attempt.
 - [x] Offline: show a connection error; no offline cache is available.
