@@ -1,22 +1,20 @@
 /**
- * Capa DATA: cliente HTTP de la API de productos (server/app.js).
- *
- * `request` y `getProducts` YA ESTÁN RESUELTOS como ejemplo del patrón. El resto de las
- * funciones se escriben en la Parte 3 del TODO.md, replicando ese patrón.
+ * Cliente HTTP de productos.
+ * Las pantallas consumen estas funciones sin manejar fetch directamente.
  */
 import type { Product, ProductInput } from '../domain/product';
 import { ApiError } from './api-error';
 import { API_URL } from './config';
 
 /**
- * YA DADO. Hace una petición a la API y devuelve el cuerpo JSON ya convertido.
- *  1. Si `fetch` lanza una excepción, la API no respondió: ApiError de red (status null).
- *  2. Si la respuesta no es exitosa (`!response.ok`), se lee el cuerpo `{ error, details }`
- *     y se lanza un ApiError con el código que devolvió el servidor.
- *  3. El 204 (DELETE) no trae cuerpo: se devuelve undefined.
+ * Utilidad suministrada por el starter:
+ * - Error de conexión: ApiError con status null.
+ * - Error HTTP: ApiError con status y details del servidor.
+ * - Respuesta 204: devuelve undefined sin intentar leer JSON.
  */
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response;
+
   try {
     response = await fetch(`${API_URL}${path}`, init);
   } catch {
@@ -25,12 +23,18 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
   if (!response.ok) {
     const body = await response.json().catch(() => null);
-    throw new ApiError(body?.error ?? `Error ${response.status}`, response.status, body?.details ?? []);
+
+    throw new ApiError(
+      body?.error ?? `Error ${response.status}`,
+      response.status,
+      body?.details ?? [],
+    );
   }
 
   if (response.status === 204) {
     return undefined as T;
   }
+
   return (await response.json()) as T;
 }
 
@@ -39,39 +43,53 @@ export interface ProductQuery {
   category?: string;
 }
 
-/** YA DADO (ejemplo): GET /api/products?search=&category= */
-export async function getProducts(query: ProductQuery = {}): Promise<Product[]> {
+/** GET de ejemplo suministrado por el starter. */
+export async function getProducts(
+  query: ProductQuery = {},
+): Promise<Product[]> {
   const params = new URLSearchParams();
+
   if (query.search) params.set('search', query.search);
   if (query.category) params.set('category', query.category);
+
   const queryString = params.toString();
-  return request<Product[]>(`/api/products${queryString ? `?${queryString}` : ''}`);
+
+  return request<Product[]>(
+    `/api/products${queryString ? `?${queryString}` : ''}`,
+  );
 }
 
-/** TODO(Parte 3): GET /api/products/:id — siga el patrón de `getProducts`. */
+/** Consultar un producto por id. */
 export async function getProduct(id: number): Promise<Product> {
-  void id;
-  throw new ApiError('TODO(Parte 3): falta implementar getProduct.', null);
+  return request<Product>(`/api/products/${id}`);
 }
 
-/**
- * TODO(Parte 3): POST /api/products — cuerpo JSON con el producto.
- * Pista: request<Product>('/api/products', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(input) })
- */
-export async function createProduct(input: ProductInput): Promise<Product> {
-  void input;
-  throw new ApiError('TODO(Parte 3): falta implementar createProduct.', null);
+/** Crear un producto enviando sus campos como JSON. */
+export async function createProduct(
+  input: ProductInput,
+): Promise<Product> {
+  return request<Product>('/api/products', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
 }
 
-/** TODO(Parte 3): PUT /api/products/:id — igual que createProduct, con method 'PUT' y el id en la ruta. */
-export async function updateProduct(id: number, input: ProductInput): Promise<Product> {
-  void id;
-  void input;
-  throw new ApiError('TODO(Parte 3): falta implementar updateProduct.', null);
+/** Actualizar un producto existente. */
+export async function updateProduct(
+  id: number,
+  input: ProductInput,
+): Promise<Product> {
+  return request<Product>(`/api/products/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
 }
 
-/** TODO(Parte 3): DELETE /api/products/:id — request<void>(`/api/products/${id}`, { method: 'DELETE' }) */
+/** Eliminar un producto; la respuesta exitosa no tiene cuerpo. */
 export async function deleteProduct(id: number): Promise<void> {
-  void id;
-  throw new ApiError('TODO(Parte 3): falta implementar deleteProduct.', null);
+  return request<void>(`/api/products/${id}`, {
+    method: 'DELETE',
+  });
 }
