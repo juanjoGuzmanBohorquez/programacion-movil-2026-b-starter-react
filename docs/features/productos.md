@@ -1,7 +1,7 @@
 # Feature — Product Catalog
 
 - **Owner:** Juan Jose Guzman Bohorquez
-- **Status:** Planned
+- **Status:** Implemented
 - **Related stories:** HU-PROD-001 List and filter products; HU-PROD-002 View product details; HU-PROD-003 Create products; HU-PROD-004 Edit products; HU-PROD-005 Delete products.
 
 ---
@@ -79,16 +79,16 @@ Screen specifications: `../screens/lista.md`, `../screens/detalle.md`, and `../s
 
 ## Edge cases & states
 
-Planned behavior; these items will be checked after verification.
+Implemented behavior. Checked items have been verified; unchecked items still require manual verification.
 
 - [ ] Loading: show a loading indicator while requests are pending.
 - [ ] Empty: show an empty catalog message and a create action.
-- [ ] No results: show a distinct message when filters match no products.
-- [ ] Error / retry: show the request error and allow another attempt.
-- [ ] Offline: show a connection error; no offline cache is available.
-- [ ] Not found: show a clear message when a product does not exist.
-- [ ] Invalid input: show validation messages and prevent submission.
-- [ ] Failed mutation: preserve form values or product details and show the error.
+- [x] No results: show a distinct message when filters match no products.
+- [x] Error / retry: show the request error and allow another attempt.
+- [x] Offline: show a connection error; no offline cache is available.
+- [x] Not found: show a clear message when a product does not exist.
+- [x] Invalid input: show validation messages and prevent submission.
+- [x] Failed mutation: preserve form values or product details and show the error.
 - Permission denied: N/A; authentication and device permissions are outside scope.
 
 ---
@@ -106,3 +106,15 @@ Planned behavior; these items will be checked after verification.
 - **API integration:** Use `startTestServer()` to verify successful requests, invalid input, missing products, and the supplied 404 handler.
 - **UI verification:** Manually verify loading, empty, no results, error/retry, inline validation, and delete confirmation.
 - **Critical flow:** Create a product, find it in the list, open its detail, edit it, and delete it.
+
+----
+
+## Verification results
+
+- Automated tests: 44 passing tests across domain and API integration suites.
+- Type checking and production build: passed.
+- ESLint: passed.
+- Product editing and deletion: manually verified.
+- API connection failure and recovery through Retry: manually verified.
+- Narrow viewport and keyboard navigation: manually verified.
+- Production build reports a bundle size warning.

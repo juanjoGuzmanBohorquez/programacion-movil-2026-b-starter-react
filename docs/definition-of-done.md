@@ -52,14 +52,14 @@ Unchecked items are pending. Mark them only after implementation and verificatio
 - [ ] Editing loads the existing product into the reusable form.
 - [ ] Creation and editing use inline validateProduct feedback.
 - [ ] Server validation details are displayed.
-- [ ] Failed saves preserve entered values.
+- [x] Failed saves preserve entered values.
 - [ ] Deletion requires an on-screen confirmation.
 - [ ] Successful deletion returns to the list.
 - [ ] Returning after mutations displays fresh data.
 - [ ] toProductView formats COP prices and stock labels correctly.
-- [ ] Connection failures display useful feedback.
+- [x] Connection failures display useful feedback.
 - [ ] Inputs have accessible labels and errors are readable.
-- [ ] Keyboard navigation and a narrow viewport manually checked.
+- [x] Keyboard navigation and a narrow viewport manually checked.
 
 ---
 
@@ -80,11 +80,11 @@ Unchecked items are pending. Mark them only after implementation and verificatio
 - [ ] At least two new API tests using startTestServer() pass.
 - [ ] A new test exercises a supplied 404 or 500 handler.
 - [ ] The handler test is explained in English.
-- [ ] npm test passes.
-- [ ] npm run lint passes.
-- [ ] npm run build passes.
+- [x] npm test passes.
+- [x] npm run lint passes.
+- [x] npm run build passes.
 - [ ] Create → view → edit → delete flow manually verified.
-- [ ] .env is ignored and .env.example is present.
+- [x] .env is ignored and .env.example is present.
 - [ ] No secrets, node_modules, or generated build files are included in the submission.
 
 ---
